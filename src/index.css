@@ -1,0 +1,66 @@
+@import '@fontsource/nunito';
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Define the keyframes for sliding from the right */
+@keyframes slideInFromRight {
+  0% {
+    transform: translateX(100%);
+    opacity: 0;
+  }
+  100% {
+    transform: translateX(0);
+    opacity: 1;
+  }
+}
+/* keyframes definition for sliding from the left */
+@keyframes slideInFromLeft {
+    0% {
+        transform: translateX(-100%);
+    }
+    100% {
+        transform: translateX(0);
+    }
+}
+/* keyframes definition for siding from the bottom */
+@keyframes slideInFromBottom {
+    0% {
+        transform: translateY(100%);
+        opacity: 0;
+    }
+    100% {
+        transform: translateX(0);
+        opacity: 1;
+    }
+}
+
+/* Define a class for applying the slide animation */
+.slide-in-right {
+    /* Adjust duration and easing as needed */
+    animation: slideInFromRight 2450ms ease-out infinite; 
+}
+.slide-in-left {
+    animation: slideInFromLeft 2450ms ease-out infinite;
+}
+.slide-in-bottom {
+    animation: slideInFromBottom 2450ms ease-out infinite;
+}
+
+/* pop-up text */
+.slide {
+  animation: slideInFromRight 350ms linear;
+}
+
+/* Hides the stepper arrows in Webkit browsers (Chrome, Safari) */
+input[type="number"]::-webkit-inner-spin-button,
+input[type="number"]::-webkit-outer-spin-button {
+  -webkit-appearance: none;
+  /* margin: 0; */
+}
+
+/* Hides the stepper arrows in Firefox */
+input[type="number"] {
+  -moz-appearance: textfield;
+}
