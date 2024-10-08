@@ -23,7 +23,7 @@ const Jewelery = () => {
           return(
             <Product product={items} key={items.id}/>
           )
-        })};
+        })}
       </section>
     </div>
   )

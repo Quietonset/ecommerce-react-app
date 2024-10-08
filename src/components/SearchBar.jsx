@@ -31,6 +31,9 @@ const SearchBar = () => {
     const [ isSearchBarUsed, setIsSearchBarUsed ] = useState(false);
     const [ searchBarItems, setSearchBarItems ] = useState(false);
     
+    const extraFilteredProducts = filteredProducts.filter((item) => {
+        return item.category === "men's clothing" || item.category === "women's clothing" || item.category === "jewelery"
+    });
 
     return (
         <>
@@ -51,12 +54,14 @@ const SearchBar = () => {
             </div>
             {/* space to display results */}
             {isSearchBarUsed && (
-                <div className='h-[200px] w-[200px] bg-[#FFFBE6] absolute top-20 overflow-scroll scrollbar-none py-2 pl-4 pr-2 rounded-md'>
+                <div className='h-screen w-[305px] bg-[#FFFBE6] absolute top-20 overflow-scroll scrollbar-none py-2 px-4 rounded-md'>
                     <div>
-                        {query !== '' ? filteredProducts.map(product => (
-                            <Link to={`/product/${product.id}`} onClick={() => setIsSearchBarUsed(false)} className='text-sm hover:text-[#FF9100] block my-4'>
-                                {product.title}
-                            </Link> 
+                        {query !== '' ? extraFilteredProducts.map(product => (
+                            <div>
+                                <Link to={`/product/${product.id}`} onClick={() => { setIsSearchBarUsed(false), setQuery('')}} className='text-sm hover:bg-[#D5ED9F] hover:font-semibold block my-4 border border-black p-2 rounded-md'>
+                                    {product.title}
+                                </Link>
+                            </div>
                         )) : (
                             <div className='flex flex-col justify-center items-center'>
                                 <div className='text-sm text-[#4e4e54]'>search for a product...</div>

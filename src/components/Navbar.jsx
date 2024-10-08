@@ -1,7 +1,6 @@
 import React, { useContext, useEffect, useState } from 'react';
 // importing icons
 import { CiShoppingCart, CiMenuBurger } from "react-icons/ci";
-import { PiCaretDownThin, PiCaretRightThin } from 'react-icons/pi';
 // importing link
 import { Link } from 'react-router-dom';
 // importing logo image
@@ -43,10 +42,10 @@ const Navbar = () => {
         {/* navlinks */}
         <div className='hidden md:block lg:block'>
           <div className='flex gap-6'>
-            <Link to={'/'} className='hover:underline hover:text-[#00712D]'>Home</Link>
-            <Link to={'/mens'} className='hover:underline hover:text-[#00712D]'>Men</Link>
-            <Link to={'/womens'} className='hover:underline hover:text-[#00712D]'>Women</Link>
-            <Link to={'/jewelery'} className='hover:underline hover:text-[#00712D]'>Jewelery</Link>
+            <Link to={'/'} className='hover:text-[#00712D] focus:text-[#ff9100]'>Home</Link>
+            <Link to={'/mens'} className='hover:text-[#00712D] focus:text-[#ff9100]'>Men</Link>
+            <Link to={'/womens'} className='hover:text-[#00712D] focus:text-[#ff9100]'>Women</Link>
+            <Link to={'/jewelery'} className='hover:text-[#00712D] focus:text-[#ff9100]'>Jewelery</Link>
           </div>
         </div>
       </div>

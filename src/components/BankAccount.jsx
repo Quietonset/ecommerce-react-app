@@ -1,11 +1,11 @@
 import React from 'react';
-import { CiStopwatch } from 'react-icons/ci';
+import { CiClock2 } from 'react-icons/ci';
 
 const BankAccount = () => {
   return (
-    <div className='w-full h-[260px] rounded-md border border-black shadow-lg px-5'>
-      <div className='bg-red-200 border border-red-400 flex mt-5 rounded-md p-2 gap-1 items-center'>
-        <CiStopwatch className='text-2xl'/>
+    <div className='rounded-md border border-black shadow-lg px-5 pt-2 pb-5 text-wrap'>
+      <div className='bg-red-200 border border-red-400 flex mt-5 rounded-md p-2 gap-1 sm:items-center text-xs sm:text-base'>
+        <CiClock2 className='text-lg sm:text-2xl'/>
         <p>Your order will be processed once we receive the funds.</p>
       </div>
       <h2 className='mt-4 font-semibold uppercase'>Bank account</h2>

@@ -25,7 +25,7 @@ const MensClothing = () => {
           return(
             <Product product={items} key={items.id}/>
           )
-        })};
+        })}
       </section>
     </div>
   )

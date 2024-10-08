@@ -10,11 +10,15 @@ const fetchProducts = async () => {
   return response.data;
 };
 
+
 export const ProductProvider = ({ children }) => {
   const { data: products = [], isPending, error } = useQuery({
     queryKey: ['products'],
     queryFn: fetchProducts
   });
+
+  // console.log(products);
+  
 
   if (isPending) {
     return (
@@ -28,7 +32,7 @@ export const ProductProvider = ({ children }) => {
   if (error) {
     return <div className="flex flex-col items-center justify-center min-h-screen bg-[#D5ED9F] text-red-700">
       <p className="font-bold capitalize">ERROR: {error.message}.</p>
-      <div className="px-10 md:px-0 lg:px-0">
+      <div className="px-10 sm:px-0">
         <p>Try:</p>
         <ul className="list-disc ml-10">
           <li>Turning off Aeroplane Mode.</li>
@@ -39,12 +43,10 @@ export const ProductProvider = ({ children }) => {
       </div>
       </div>
   };
-
-  // console.log(products);
   
 
   return (
-    <ProductContext.Provider value={{ products, isPending, error }}>
+    <ProductContext.Provider value={{ products }}>
       {children}
     </ProductContext.Provider>
   );

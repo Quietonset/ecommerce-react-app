@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useContext, useState } from 'react';
 import { CiUser } from "react-icons/ci";
 import { CiUnread } from "react-icons/ci";
 import { CiRead } from 'react-icons/ci';
@@ -7,6 +7,7 @@ import { DevTool } from '@hookform/devtools';
 import { zodResolver } from '@hookform/resolvers/zod';
 import { loginValidationSchema } from '../validations/LoginValidations';
 import { Link, useNavigate } from 'react-router-dom';
+import { AuthContext } from '../context/AuthContext';
 
 
 const Login = () => {
@@ -14,6 +15,8 @@ const Login = () => {
     const { register, handleSubmit, control, formState: { errors } } = form;
     const [isPopupVisible, setIsPopupVisible] = useState(false);
     const [ showPassword, setShowPassword ] = useState(false);
+
+    const { isLoggedIn, setIsLoggedIn } = useContext(AuthContext);
 
     const handlePasswordVisibility = ()=>{
         setShowPassword((show) => !show);
@@ -24,9 +27,10 @@ const Login = () => {
         setTimeout(()=>{
             setIsPopupVisible(true);
             setTimeout(()=>{
-                navigate('/');
+                navigate('/checkout');
             }, 1000);
         }, 2000);
+        setIsLoggedIn(true);
     };
   return (
     <div className='flex justify-center items-center h-fit py-[83px] bg-[#FFFBE6]'>
@@ -92,9 +96,6 @@ const Login = () => {
                 <div className='fixed inset-0 flex items-center justify-center bg-black bg-opacity-50'>
                     <div className='bg-[#D5ED9F] p-6 rounded shadow-lg h-[100px]'>
                         <p className='text-gray-700 text-lg'>Form submitted successfully!</p>
-                        {/* <button className='capitalize mt-4 bg-gray-500 text-black w-full hover:bg-black hover:text-white transform scale-105 px-4 py-2 rounded' onClick={()=> setIsPopupVisible(false)}>
-                            close
-                        </button> */}
                     </div>
                 </div>
             )}

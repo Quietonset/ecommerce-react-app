@@ -5,10 +5,14 @@ import { Link } from 'react-router-dom';
 import { IoMdClose } from 'react-icons/io';
 // import cart context
 import { CartContext } from '../../context/CartContext';
+import { SidebarContext } from '../../context/SidebarContext';
 
 const CartItem = ({ item }) => {
     // cart context
     const { removeFromCart } = useContext(CartContext);
+
+    // sidebar context
+    const { handleClose } = useContext(SidebarContext);
 
     // destructuring the items in the product
     const { image, title, id, price } = item;
@@ -21,7 +25,7 @@ const CartItem = ({ item }) => {
         <div className='w-full flex flex-col justify-between'>
             {/* title */}
             <div className='w-full font-bold text-sm hover:underline hover:text-[#FF9100] mx-2'>
-                <Link to={`/product/${id}`}>
+                <Link to={`/product/${id}`} onClick={handleClose}>
                     { title }
                 </Link>
             </div>

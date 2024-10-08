@@ -11,10 +11,12 @@ import { CartContext } from "../../context/CartContext";
 
 // import link
 import { Link } from "react-router-dom";
+import { AuthContext } from "../../context/AuthContext";
 
 const SideBar = () => {
   const { isOpen, handleClose } = useContext(SidebarContext);
   const { cart, cartQuantity, clearCart, total } = useContext(CartContext);
+  const { isLoggedIn, setIsLoggedIn } = useContext(AuthContext);
 
   return (
     <div>
@@ -56,8 +58,7 @@ const SideBar = () => {
         </div>
       </div>
       <div className="flex items-end justify-center mb-4 gap-4">
-        {/* <Link to={'/cart'} onClick={handleClose} className="bg-[#D5ED9F] hover:bg-[#ff9100] text-black flex p-4 justify-center items-center w-full uppercase rounded-md">view cart</Link> */}
-        <Link to={'/checkout'} onClick={handleClose} className="bg-[#D5ED9F] hover:bg-[#FF9100] flex p-4 justify-center items-center text-black w-full uppercase rounded-md">checkout</Link>
+        <Link to={`${isLoggedIn ? '/checkout' : '/login'}`} onClick={handleClose} className="bg-[#D5ED9F] hover:bg-[#FF9100] flex p-4 justify-center items-center text-black w-full uppercase rounded-md">checkout</Link>
       </div>
      </div>
     </div>

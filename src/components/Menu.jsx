@@ -8,10 +8,13 @@ import { GiDropEarrings, GiPoloShirt } from "react-icons/gi";
 import { MdOutlineAssignment, MdOutlineAssignmentInd, MdLogout } from "react-icons/md";
 // import link
 import { Link } from 'react-router-dom';
+import { AuthContext } from '../context/AuthContext';
 
 const Menu = () => {
     // menu context
     const { isClicked, handleMenuClose } = useContext(MenuContext);
+    // authentication context
+    const { isLoggedIn, setIsLoggedIn } = useContext(AuthContext);
 
     // state of menu tabs - account
     const [ isAccountClicked, setIsAccountClicked ] = useState(false);
@@ -37,9 +40,9 @@ const Menu = () => {
               </div>
                 {isAccountClicked && (
                   <div className='capitalize mx-12 py-1.5 flex flex-col gap-1.5'>
-                    <Link to={'/login'} onClick={() => handleMenuClose()} className='hover:text-[#F99100] flex items-center gap-1.5'><MdOutlineAssignment/>log in</Link>
+                    <Link to={'/login'} onClick={() => handleMenuClose()} className={`${isLoggedIn ? 'hidden' : 'block'} hover:text-[#F99100] flex items-center gap-1.5`}><MdOutlineAssignment/>log in</Link>
                     <Link to={'/signUp'} onClick={() => handleMenuClose()} className='hover:text-[#F99100] flex items-center gap-1.5'><MdOutlineAssignmentInd/>Create an account</Link>
-                    <Link to={'/'} onClick={() => handleMenuClose()} className='hover:text-[#F99100] flex items-center gap-1.5'><MdLogout/>log out</Link>
+                    <Link to={'/'} onClick={() => {handleMenuClose(), setIsLoggedIn(false)}} className='hover:text-[#F99100] flex items-center gap-1.5'><MdLogout/>log out</Link>
                   </div>
                 )}
 

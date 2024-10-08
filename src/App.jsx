@@ -1,5 +1,5 @@
 import React from 'react';
-import { Route, createBrowserRouter, createRoutesFromElements, RouterProvider } from 'react-router-dom';
+import { Route, createHashRouter, createRoutesFromElements, RouterProvider } from 'react-router-dom';
 import Root from './layout/Root';
 import Login from './pages/Login';
 import SignUpPage from './pages/SignUpPage';
@@ -15,7 +15,7 @@ import Checkout from './pages/Checkout';
 import ProductProvider from './context/ProductContext';
 
 
-const router = createBrowserRouter(
+const router = createHashRouter(
   createRoutesFromElements(
         <Route path="/" element={ <Root/> }>
           <Route index element={ <Homepage/> }/>
@@ -42,4 +42,4 @@ const App = () => {
   )
 }
 
-export default App
+export default App;
