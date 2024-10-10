@@ -53,12 +53,15 @@ const Checkout = () => {
    // function to control button state 
    const handleBtn = (e) => {
        e.preventDefault();
-       const userValues = Object.values(inputs);
-       if (userValues === '') {
-        setIsProceeding(false)
-       } else {
-        setIsProceeding(true);
+       for (const names in inputs){
+        console.log(names);
+        if (inputs, names) {
+          const element = inputs[names];
+          console.log(element);
+          
+        }
        }
+        setIsProceeding(true);
    };
    
    const { isLoggedIn } = useContext(AuthContext);

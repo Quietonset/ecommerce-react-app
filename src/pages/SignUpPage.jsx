@@ -112,9 +112,9 @@ const SignUpPage = () => {
                 className='uppercase w-full h-11 bg-[#D5ED9F] text-black hover:bg-[#ff9100] transition-all outline-none border-none shadow text-sm active:scale-105 my-3'>
                   sign up
                 </button>
-                <div className='text-sm text-center mt-5 capitalize'>
-                    <p>already have an account? 
-                      <Link to='/login' className='hover:underline mx-1 hover:text-[#ff9100]'>sign in</Link>
+                <div className='text-sm text-center mt-5'>
+                    <p>Already have an account? 
+                      <Link to='/login' className='hover:underline mx-1 hover:text-[#ff9100] capitalize'>sign in</Link>
                     </p>
                 </div>
             </form>
@@ -124,9 +124,6 @@ const SignUpPage = () => {
                 <div className='fixed inset-0 flex items-center justify-center bg-black bg-opacity-50'>
                     <div className='bg-[#D5ED9F] p-6 rounded shadow-lg h-[100px]'>
                         <p className='text-gray-700 text-lg'>Form submitted successfully!</p>
-                        {/* <button className='capitalize mt-4 bg-gray-500 text-black w-full hover:bg-black hover:text-white transform scale-105 px-4 py-2 rounded' onClick={()=> setIsPopupVisible(false)}>
-                            close
-                        </button> */}
                     </div>
                 </div>
             )}

@@ -85,7 +85,7 @@ const Login = () => {
                 onSubmit={submitForm} 
                 className='uppercase w-full h-11 bg-[#D5ED9F] text-black hover:bg-[#ff9100] transition-all outline-none border-none shadow text-sm active:scale-105 my-3'>login</button>
                 <div className='text-sm text-center mt-5'>
-                    <p>don't have an account?
+                    <p>Don't have an account?
                         <Link to='/signUp' className='hover:underline mx-1 hover:text-[#ff9100]'>Sign Up</Link>
                     </p>
                 </div>
