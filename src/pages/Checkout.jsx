@@ -104,7 +104,7 @@ const Checkout = () => {
               value={inputs.firstName}
               onChange={handleChange}
               placeholder='Joe' 
-              className='border border-black rounded hover:border-black focus:outline-1 focus:outline-[#a1b86d] pl-2 h-10 placeholder:text-xs sm:placeholder:text-base w-[90%]' />
+              className='border border-black rounded hover:border-black focus:outline-1 focus:outline-[#a1b86d] pl-2 h-10 placeholder:text-xs sm:placeholder:text-base w-[90%] sm:w-full' />
             </div>
             <div className='flex flex-col w-full'>
               <label htmlFor="last-name" className='text-[#4e4e54]'>Last name <span className='text-red-500'>*</span></label>
@@ -114,7 +114,7 @@ const Checkout = () => {
               value={inputs.lastName}
               onChange={handleChange}
               placeholder='Goldberg' 
-              className='border border-black rounded hover:border-black focus:outline-1 focus:outline-[#a1b86d] pl-2 h-10 placeholder:text-xs sm:placeholder:text-base w-[90%]' />
+              className='border border-black rounded hover:border-black focus:outline-1 focus:outline-[#a1b86d] pl-2 h-10 placeholder:text-xs sm:placeholder:text-base w-[90%] sm:w-full' />
             </div>
           </div>
           <div className='flex flex-col w-full'>
@@ -125,7 +125,7 @@ const Checkout = () => {
             value={inputs.address}
             onChange={handleChange}
             placeholder='71 Golden Avenue, Off Agip Junction, Port Harcourt' 
-            className='border border-black rounded hover:border-black focus:outline-1 focus:outline-[#a1b86d] pl-2 h-10 placeholder:text-xs sm:placeholder:text-base w-[95%]'/>
+            className='border border-black rounded hover:border-black focus:outline-1 focus:outline-[#a1b86d] pl-2 h-10 placeholder:text-xs sm:placeholder:text-base w-[90%] sm:w-full'/>
           </div>
           <div className='flex flex-col sm:flex-row gap-4'>
             <div className='flex flex-col w-full'>
@@ -136,7 +136,7 @@ const Checkout = () => {
               value={inputs.city}
               onChange={handleChange}
               placeholder='Port Harcourt'
-              className='border border-black rounded hover:border-black focus:outline-1 focus:outline-[#a1b86d] pl-2 h-10 placeholder:text-xs sm:placeholder:text-base w-[90%]' />
+              className='border border-black rounded hover:border-black focus:outline-1 focus:outline-[#a1b86d] pl-2 h-10 placeholder:text-xs sm:placeholder:text-base w-[90%] sm:w-full' />
             </div>
             <div className='flex flex-col w-full'>
               <label htmlFor="state" className='text-[#4e4e54]'>State <span className='text-red-500'>*</span></label>
@@ -146,7 +146,7 @@ const Checkout = () => {
               value={inputs.state}
               onChange={handleChange} 
               placeholder='Rivers State' 
-              className='border border-black rounded hover:border-black focus:outline-1 focus:outline-[#a1b86d] pl-2 h-10 placeholder:text-xs sm:placeholder:text-base w-[90%]' />
+              className='border border-black rounded hover:border-black focus:outline-1 focus:outline-[#a1b86d] pl-2 h-10 placeholder:text-xs sm:placeholder:text-base w-[90%] sm:w-full' />
             </div>
           </div>
           <p className='mt-4'>Please select a mode of payment <span className='text-red-500'>*</span></p>

@@ -76,48 +76,49 @@ const SearchBar = () => {
         <div className='block md:hidden lg:hidden'>
             <CiSearch onClick={() => setIsSearchBarUsed(true)} className='-mr-1 text-3xl hover:text-[#ff9100]'/>
                 {isSearchBarUsed && (
-                    <>
-                        <div onClick={() => setIsSearchBarUsed(false)} className='bg-black opacity-80 h-full w-screen fixed inset-0 z-20'></div>
-                        <div className='bg-[#bad282] h-40 w-60 rounded-md flex justify-center items-center absolute top-[280px] right-[20%] z-30'>
-                            <div className='relative w-full h-full'>
-                                <input
+                    <div className='fixed inset-0 flex items-center justify-center bg-black bg-opacity-50'>
+                        {/* search bar box */}
+                        <div className='bg-[#bad282] h-40 w-60 rounded-md flex justify-center items-center z-30'>
+                            {/* input */}
+                            <div className='relative h-full w-full'>
+                                <input 
                                 type="text"
-                                value={ query }
+                                value={query}
                                 placeholder='Search'
                                 className='px-2 h-8 mx-3 w-[85%] outline-none text-xs rounded-lg'
                                 onChange={(e) => setQuery(e.target.value)}
                                 />
-                                <button 
-                                onClick={() => setIsSearchBarUsed(false)} 
-                                className="absolute -top-3 -right-3 text-xl bg-white rounded-full p-1.5 hover:bg-[#ff9100] hover:text-white">
+                                {/* closing button */}
+                                <button onClick={() => setIsSearchBarUsed(false)} className='absolute -top-3 -right-3 text-xl bg-white rounded-full p-1.5 hover:bg-[#ff9100] hover:text-white'>
                                     <IoCloseOutline/>
                                 </button>
                                 {query !== '' ? (
                                     <div>
                                         <div className='flex justify-center items-center flex-col'>
-                                            <p className='text-sm text-center mt-4'>{filteredProducts.length} items found</p>
-                                            <button onClick={() => setSearchBarItems(true)} className={`${filteredProducts.length === 0 ? 'hidden' : 'block'} bg-black text-white py-1.5 px-2 rounded-md text-sm text-center hover:bg-[#ff9100]`}>View</button>
+                                            <p className='text-sm text-center mt-4'>{extraFilteredProducts.length} items found</p>
+                                            <button  onClick={() => setSearchBarItems(true)} className={`${extraFilteredProducts.length === 0 ? 'hidden' : 'block'} bg-black text-white py-1 px-2 rounded-md text-xs text-center font-sans hover:bg-[#ff9100] mt-4`}>View</button>
                                         </div>
-                                        {/* space to display results */}
                                         {searchBarItems && (
                                             <div className='bg-white h-52 w-80 rounded-md absolute -top-12 -right-11 z-40 px-8 py-5'>
-                                                <div className='h-3/4 w-4/5 overflow-auto'>
-                                                    {filteredProducts.map(items => (
-                                                        <Link to={`product/${items.id}`} onClick={() => setIsSearchBarUsed(false)} className='text-sm my-1.5'>{items.title}</Link>
+                                                <div className='h-4/5 overflow-auto'>
+                                                    {extraFilteredProducts.map(items => (
+                                                        <Link to={`product/${items.id}`} onClick={() => { setIsSearchBarUsed(false), setQuery('') }} className='text-xs my-3.5 hover:text-[#ff9100] block'>{items.title}</Link>
                                                     ))}
                                                 </div>
                                                 <div className='flex justify-end mt-3'>
-                                                    <button onClick={() => setSearchBarItems(false)} className='text-sm p-1.5 bg-black hover:bg-[#ff9100] text-white rounded-md'>Close</button>
+                                                    <button onClick={() => {setSearchBarItems(false), setIsSearchBarUsed(false)}} className='text-xs p-1 bg-black hover:bg-[#ff9100] text-white rounded-md font-sans text-center'>Close</button>
                                                 </div>
                                             </div>
                                         )}
                                     </div>
                                 ) : (
-                                    <p className='text-sm text-center mt-4'>No results...</p>
+                                    <div>
+                                        <p className='text-sm text-center mt-4'>No results...</p>
+                                    </div>
                                 )}
                             </div>
                         </div>
-                        </>
+                    </div>
                 )}
         </div>
         </>
