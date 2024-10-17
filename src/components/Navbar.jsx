@@ -8,7 +8,7 @@ import logo from '../assets/images/logo-3.png';
 // importing siderbar & cart contexts
 import { SidebarContext } from '../context/SidebarContext';
 import { CartContext } from '../context/CartContext';
-import { MenuContext } from '../context/Menucontext';
+import { MenuContext } from './context/Menucontext';
 import SearchBar from './SearchBar';
 
 
