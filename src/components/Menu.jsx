@@ -1,6 +1,6 @@
 import React, { useContext, useEffect, useState } from 'react';
 // import menu context
-import { MenuContext } from './context/Menucontext';
+import { MenuContext } from '../context/MenuContext';
 // import icons
 import { CiUser, CiShop, CiShoppingTag, CiHome, CiStar } from 'react-icons/ci';
 import { IoChevronDown, IoChevronUp, IoShirt, IoBagCheckOutline } from 'react-icons/io5';
